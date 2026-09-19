@@ -1,97 +1,119 @@
-// My project data
+'use strict';
+
 const projects = [
     {
-        name: "School Project",
-        description: "A website project created as part of my school work.",
-        technology: "HTML & CSS",
-        category: "school"
+        title: 'School Project',
+        description: 'A website project created as part of my school activities.',
+        tags: ['school', 'web'],
+        year: 2026
     },
     {
-        name: "Web Practice",
-        description: "A small website I made while practicing web development.",
-        technology: "HTML & CSS",
-        category: "coding"
+        title: 'Portfolio Website',
+        description: 'My personal portfolio showcasing my skills, interests, and work.',
+        tags: ['web'],
+        year: 2026
     },
     {
-        name: "Photography Ideas",
-        description: "A collection of ideas for photography projects and creative shots.",
-        technology: "Creative Project",
-        category: "photography"
+        title: 'Photography Project',
+        description: 'A creative project inspired by my interest in photography.',
+        tags: ['photography'],
+        year: 2026
     },
     {
-        name: "Portfolio Website",
-        description: "My personal portfolio showcasing my work, interests, and skills.",
-        technology: "HTML, CSS & JavaScript",
-        category: "web"
+        title: 'JavaScript Practice',
+        description: 'A small project created while learning JavaScript and interactive websites.',
+        tags: ['school', 'web'],
+        year: 2026
     }
 ];
 
+function filterProjects(projectList, searchText, category) {
+    const search = searchText.trim().toLowerCase();
 
-// Takes a search value and RETURNS a filtered list.
-// This function does NOT touch the page.
-function filterProjects(searchValue) {
-    const search = searchValue.trim().toLowerCase();
-
-    if (search === "") {
-        return projects;
+    if (search === '' && category === 'all') {
+        return projectList;
     }
 
-    return projects.filter(function (project) {
-        return (
-            project.name.toLowerCase().includes(search) ||
-            project.description.toLowerCase().includes(search) ||
-            project.technology.toLowerCase().includes(search) ||
-            project.category.toLowerCase().includes(search)
-        );
+    return projectList.filter(function (project) {
+        const title = project.title.toLowerCase();
+        const description = project.description.toLowerCase();
+        const tags = project.tags.join(' ').toLowerCase();
+
+        const matchesSearch =
+            search === '' ||
+            title.includes(search) ||
+            description.includes(search) ||
+            tags.includes(search);
+
+        const matchesCategory =
+            category === 'all' ||
+            project.tags.includes(category);
+
+        return matchesSearch && matchesCategory;
     });
 }
 
+function renderProjects(projectList) {
+    const container = document.querySelector('#project-list');
+    const count = document.querySelector('#count');
 
-// Draws the projects into the empty container.
-function displayProjects(projectList) {
-    const container = document.getElementById("project-list");
-    const message = document.getElementById("project-message");
+    if (!Array.isArray(projectList)) {
+        container.innerHTML =
+            '<li class="no-results">Something went wrong. Please try again.</li>';
 
-    container.innerHTML = "";
-
-    // Guard against bad or empty data
-    if (!Array.isArray(projectList) || projectList.length === 0) {
-        message.textContent = "No projects found. Try a different search.";
+        count.textContent = '';
         return;
     }
 
-    message.textContent = "";
+    if (projectList.length === 0) {
+        container.innerHTML =
+            '<li class="no-results">No projects matched your search. Try something else.</li>';
 
-    projectList.forEach(function (project, index) {
+        count.textContent = 'Showing 0 projects.';
+        return;
+    }
 
-        // Extra guard so undefined values never appear on the page
-        const name = project.name || "Untitled project";
-        const description = project.description || "No description available.";
-        const technology = project.technology || "Technology not listed";
+    let projectHTML = '';
 
-        const card = document.createElement("article");
-        card.className = "project-card";
+    for (const project of projectList) {
+        const title = project.title || 'Untitled project';
+        const description = project.description || 'No description available.';
+        const year = project.year || 'Year not listed';
+        const tags = Array.isArray(project.tags)
+            ? project.tags.join(' • ')
+            : 'No tags available';
 
-        card.innerHTML = `
-            <span class="project-number">PROJECT ${String(index + 1).padStart(2, "0")}</span>
-            <h3>${name}</h3>
-            <p>${description}</p>
-            <span class="project-tag">${technology}</span>
+        projectHTML += `
+            <li class="project-card">
+                <span class="project-year">${year}</span>
+                <h3>${title}</h3>
+                <p>${description}</p>
+                <span class="project-tags">${tags}</span>
+            </li>
         `;
+    }
 
-        container.appendChild(card);
-    });
+    container.innerHTML = projectHTML;
+
+    const word = projectList.length === 1 ? 'project' : 'projects';
+    count.textContent = `Showing ${projectList.length} ${word}.`;
 }
 
+const searchInput = document.querySelector('#search');
+const categorySelect = document.querySelector('#category');
 
-// Initial display
-displayProjects(projects);
+function updateProjects() {
+    const filteredProjects = filterProjects(
+        projects,
+        searchInput.value,
+        categorySelect.value
+    );
 
+    renderProjects(filteredProjects);
+}
 
-// Listen for changes in the search box
-const searchInput = document.getElementById("project-search");
+renderProjects(projects);
 
-searchInput.addEventListener("input", function () {
-    const newList = filterProjects(searchInput.value);
-    displayProjects(newList);
-});
+searchInput.addEventListener('input', updateProjects);
+
+categorySelect.addEventListener('change', updateProjects);

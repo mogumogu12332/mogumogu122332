@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Stephen Ronn P Pangan | Portfolio</title>
+    <title>Stephen Ronn P Pangan</title>
 
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
@@ -13,10 +13,11 @@
 <body>
 
     <header class="navbar">
-        <a href="#" class="logo">stephen<span>✦</span></a>
+        <a href="#" class="logo">SR<span>✦</span></a>
 
         <nav>
             <a href="#about">About</a>
+            <a href="#skills">Skills</a>
             <a href="#projects">Projects</a>
             <a href="#contact">Contact</a>
         </nav>
@@ -24,146 +25,195 @@
 
     <main>
 
-        <!-- HERO -->
         <section class="hero">
-            <div class="hero-text">
-                <p class="eyebrow">HELLO, I'M</p>
+            <div class="hero-content">
+                <p class="eyebrow">WELCOME TO MY LITTLE CORNER</p>
 
-                <h1>Stephen Ronn<br><span>P Pangan</span></h1>
+                <h1>
+                    Stephen Ronn
+                    <span>P Pangan</span>
+                </h1>
 
-                <p class="intro">
-                    A student who enjoys coding, learning new things,
-                    and capturing moments through photography.
+                <p class="hero-description">
+                    Student, aspiring developer, and photography enthusiast
+                    who enjoys turning ideas into something real.
                 </p>
 
-                <a href="#projects" class="button">See my work ↓</a>
+                <div class="hero-buttons">
+                    <a href="#projects" class="button primary">Explore my work ↓</a>
+                    <a href="#contact" class="button secondary">Let's connect</a>
+                </div>
             </div>
 
-            <div class="hero-card">
-                <div class="camera">📷</div>
-                <p>student • coder • photographer</p>
+            <div class="hero-visual">
+                <div class="sun"></div>
+                <div class="photo-frame">
+                    <div class="photo-icon">📷</div>
+                    <p>capturing little moments</p>
+                </div>
+                <span class="sparkle sparkle-one">✦</span>
+                <span class="sparkle sparkle-two">✧</span>
             </div>
         </section>
 
 
-        <!-- ABOUT -->
         <section id="about" class="section">
-            <p class="eyebrow">01 — ABOUT ME</p>
-            <h2>A little bit about me.</h2>
+            <div class="section-label">
+                <span>01</span>
+                <p>ABOUT ME</p>
+            </div>
 
-            <div class="about-grid">
-                <p>
-                    I'm Stephen Ronn P Pangan, a student currently studying
-                    at Holy Angel University. I'm interested in coding and
-                    enjoy exploring creative ways to build things on the web.
-                </p>
+            <div class="about-layout">
+                <h2>Still learning,<br><em>always creating.</em></h2>
 
-                <p>
-                    When I'm away from the screen, I enjoy photography.
-                    I like capturing interesting places, moments, and little
-                    details that are easy to overlook.
-                </p>
+                <div class="about-text">
+                    <p>
+                        Hi! I'm Stephen Ronn P Pangan, a student currently
+                        studying at Holy Angel University.
+                    </p>
+
+                    <p>
+                        I'm interested in coding and web development. I enjoy
+                        learning how websites work and creating projects that
+                        allow me to turn ideas into something people can use.
+                    </p>
+
+                    <p>
+                        Outside of coding, photography is one of my favorite
+                        interests. I enjoy finding interesting moments and
+                        capturing them through a camera.
+                    </p>
+                </div>
             </div>
         </section>
 
 
-        <!-- SKILLS -->
-        <section class="section soft-section">
-            <p class="eyebrow">02 — SKILLS</p>
-            <h2>Things I enjoy doing.</h2>
+        <section id="skills" class="section tinted">
+            <div class="section-label">
+                <span>02</span>
+                <p>WHAT I DO</p>
+            </div>
 
-            <div class="skills">
-                <div class="skill-card">
+            <h2>My interests & skills</h2>
+
+            <div class="skill-grid">
+                <article class="skill-card">
+                    <div class="skill-icon">⌘</div>
                     <span>01</span>
-                    <h3>💻 Coding</h3>
-                    <p>Building and experimenting with websites and code.</p>
-                </div>
+                    <h3>Web Development</h3>
+                    <p>
+                        Learning to build websites with HTML, CSS,
+                        and JavaScript.
+                    </p>
+                </article>
 
-                <div class="skill-card">
+                <article class="skill-card featured">
+                    <div class="skill-icon">◉</div>
                     <span>02</span>
-                    <h3>📷 Photography</h3>
-                    <p>Capturing moments and finding beauty in everyday scenes.</p>
-                </div>
+                    <h3>Photography</h3>
+                    <p>
+                        Exploring photography and capturing everyday
+                        moments creatively.
+                    </p>
+                </article>
 
-                <div class="skill-card">
+                <article class="skill-card">
+                    <div class="skill-icon">✎</div>
                     <span>03</span>
-                    <h3>🌱 Learning</h3>
-                    <p>Always learning and improving one project at a time.</p>
-                </div>
+                    <h3>Learning</h3>
+                    <p>
+                        Constantly experimenting, practicing, and
+                        learning something new.
+                    </p>
+                </article>
             </div>
         </section>
 
 
-        <!-- INTERACTIVE PROJECTS -->
         <section id="projects" class="section">
-            <p class="eyebrow">03 — PROJECTS</p>
+            <div class="section-label">
+                <span>03</span>
+                <p>MY WORK</p>
+            </div>
 
-            <div class="section-heading">
+            <div class="project-heading">
                 <div>
                     <h2>Things I've made.</h2>
-                    <p>Search through my projects below.</p>
+                    <p>Have a look around.</p>
                 </div>
 
-                <div class="search-box">
-                    <label for="project-search">Search</label>
+                <div class="controls">
+                    <label for="search">Search</label>
+
                     <input
-                        type="text"
-                        id="project-search"
-                        placeholder="Try 'school'..."
+                        type="search"
+                        id="search"
+                        placeholder="Search projects..."
                         autocomplete="off"
                     >
+
+                    <label for="category">Category</label>
+
+                    <select id="category">
+                        <option value="all">All projects</option>
+                        <option value="school">School</option>
+                        <option value="web">Web Development</option>
+                        <option value="photography">Photography</option>
+                    </select>
                 </div>
             </div>
 
-            <!-- EMPTY CONTAINER:
-                 JavaScript builds the project cards here. -->
-            <div id="project-list" class="project-list"></div>
+            <p id="count"></p>
 
-            <p id="project-message" class="project-message"></p>
+            <ul id="project-list"></ul>
         </section>
 
 
-        <!-- EDUCATION -->
-        <section class="section soft-section">
-            <p class="eyebrow">04 — EDUCATION</p>
+        <section class="currently tinted">
+            <div>
+                <p class="eyebrow">RIGHT NOW</p>
+                <h2>Currently learning.</h2>
+            </div>
 
-            <div class="education">
-                <div class="school-icon">🎓</div>
-
-                <div>
-                    <h2>Holy Angel University</h2>
-                    <p>Currently studying</p>
-                </div>
+            <div class="learning-list">
+                <span>JavaScript</span>
+                <span>Web Design</span>
+                <span>Photography</span>
             </div>
         </section>
 
 
-        <!-- CONTACT -->
         <section id="contact" class="contact-section">
-            <p class="eyebrow">05 — CONTACT</p>
+            <div class="contact-card">
+                <p class="eyebrow">04 — CONTACT</p>
 
-            <h2>Let's connect.</h2>
+                <h2>
+                    Let's make something
+                    <em>interesting.</em>
+                </h2>
 
-            <p>
-                Want to see more of my work? You can find me on GitHub.
-            </p>
+                <p>
+                    Want to see what I'm working on?
+                    Come say hi on GitHub.
+                </p>
 
-            <a
-                href="https://github.com/mogumogu12332"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="github-button"
-            >
-                Visit my GitHub ↗
-            </a>
+                <a
+                    href="https://github.com/mogumogu12332"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="github-button"
+                >
+                    GitHub ↗
+                </a>
+            </div>
         </section>
 
     </main>
 
 
     <footer>
-        <p>Made with ☕ & curiosity by Stephen Ronn P Pangan</p>
-        <p>© 2026</p>
+        <p>Stephen Ronn P Pangan</p>
+        <p>Made with curiosity & ☕</p>
     </footer>
 
 </body>
